@@ -61,13 +61,13 @@ class Mesh{
 
         double m = vert[0][z]; // initialize the maximum to be value of column z in first row.
         for(int i = 1; i < vert.size(); i++)
-            { m = max(m, vert[i][z]);}
+             m = max(m, vert[i][z]);
             
         resultMax.push_back(m); 
             
         double n = vert[0][z]; // initialize the maximum to be value of column z in first row.
         for(int j = 1; j < vert.size(); j++)
-            {n = min(n, vert[j][z]); }
+            n = min(n, vert[j][z]); 
           
         resultMin.push_back(n);
         }  
