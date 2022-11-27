@@ -49,7 +49,7 @@ class Mesh{
         dimensionVec.push_back(abs(results[0][2] - results[1][2]));
         
          
-        return dimensionVec ;
+        return dimensionVec;
     }
 
         
@@ -92,7 +92,7 @@ int main(int argc, char **argv){
     vector<double> volume;  /* new code */
     vector<string> names;    /* new code */
     vector<double> volumeCopy; /* new code */
-    vector<double> namesCopy; /* new code */
+    
     vector<double> temp;
     int count = 0, countForLoop=0;
     //***********
@@ -107,7 +107,7 @@ int main(int argc, char **argv){
 
     VECTOR_D(temp); temp = mesh1.get_dimensions();
    // PRINT_VECTOR(temp);
-    result.push_back(temp);
+    result.push_back(mesh1.get_dimensions());
    
    // PRINT_V_V(result);
 
@@ -117,17 +117,7 @@ int main(int argc, char **argv){
 
 }
     volumeCopy = volume;  // original unsorted volumes correspond to the string filename order
-    stable_sort(volume.begin(), volume.end(), greater<double>()); // descending order of volumes
-
-  /*   for (double x : volume)
-{       cout << x << endl; 
-
-        auto it = find(volumeCopy.begin(), volumeCopy.end(), x);
-        cout << *it << "   " << it - volumeCopy.begin() << endl;
-        cout << volume[count] << " " << names[it - volumeCopy.begin()] << " " <<  result[it - volumeCopy.begin()][0] << " " << result[it - volumeCopy.begin()][1] << " " << result[it - volumeCopy.begin()][2] << endl;
-        count++;
-        
-} . */
+    stable_sort(volume.begin(), volume.end(), greater<double>()); 
 
 for (string x : names)
 {       //cout << x << endl; 
