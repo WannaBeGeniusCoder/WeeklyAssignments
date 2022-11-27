@@ -119,11 +119,24 @@ int main(int argc, char **argv){
     volumeCopy = volume;  // original unsorted volumes correspond to the string filename order
     stable_sort(volume.begin(), volume.end(), greater<double>()); // descending order of volumes
 
-    for (double x : volume)
-{
+  /*   for (double x : volume)
+{       cout << x << endl; 
+
         auto it = find(volumeCopy.begin(), volumeCopy.end(), x);
+        cout << *it << "   " << it - volumeCopy.begin() << endl;
         cout << volume[count] << " " << names[it - volumeCopy.begin()] << " " <<  result[it - volumeCopy.begin()][0] << " " << result[it - volumeCopy.begin()][1] << " " << result[it - volumeCopy.begin()][2] << endl;
         count++;
+        
+} . */
+
+for (string x : names)
+{       //cout << x << endl; 
+
+        auto it = find(names.begin(), names.end(), x);
+        int index = (int) (it - names.begin());
+        cout << volume[it - names.begin()] << " " << names[it - names.begin()] << " " <<  result[index][0] << " " << result[index][1] << " " << result[index][2] << endl;
+        count++;
+        
 }
 
 return 0;
