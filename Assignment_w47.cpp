@@ -102,7 +102,7 @@ int main(int argc, char **argv){
             filename = argv[i];
 
     names.push_back(filename); /* new code */
-    
+    //PRINT_VECTOR(names);
     Mesh mesh1(filename);
 
     VECTOR_D(temp); temp = mesh1.get_dimensions();
@@ -117,11 +117,12 @@ int main(int argc, char **argv){
 
 }
     volumeCopy = volume;  // original unsorted volumes correspond to the string filename order
-    sort(volume.begin(), volume.end(), greater<double>()); // descending order of volumes
+    stable_sort(volume.begin(), volume.end(), greater<double>()); // descending order of volumes
+
     for (double x : volume)
 {
         auto it = find(volumeCopy.begin(), volumeCopy.end(), x);
-        cout << volume[count] << " " << names[it - volumeCopy.begin()] << " " <<  result[count][0] << " " << result[count][1] << " " << result[count][2] << endl;
+        cout << volume[count] << " " << names[it - volumeCopy.begin()] << " " <<  result[it - volumeCopy.begin()][0] << " " << result[it - volumeCopy.begin()][1] << " " << result[it - volumeCopy.begin()][2] << endl;
         count++;
 }
 
